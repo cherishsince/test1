@@ -41,4 +41,11 @@ public class HashMapTests {
         hashMap.put(null, 10);
         Assert.assertTrue("hash map size request 1!", hashMap.size() == 1);
     }
+
+    @Test
+    public void valuesTest() {
+        hashMap.put("key1", 10);
+        hashMap.put(null, 10);
+        System.err.println(hashMap.values());
+    }
 }
