@@ -8,6 +8,8 @@
     <modules>
         <module>test-java-collections</module>
         <module>test-java-serviceLoader</module>
+        <module>test-java-bean</module>
+        <module>test-java-threadPool</module>
     </modules>
 
     <groupId>cn.coget.test</groupId>
