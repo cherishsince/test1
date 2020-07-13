@@ -39,7 +39,7 @@ public class HashMapTests {
     public void nullKeyTest() {
         hashMap.put("key1", 10);
         hashMap.put(null, 10);
-        Assert.assertTrue("hash map size request 1!", hashMap.size() == 1);
+        Assert.assertTrue("hash map size request 1!", hashMap.size() == 2);
     }
 
     @Test
