@@ -12,6 +12,7 @@
         <module>test-java-threadPool</module>
         <module>test-java-queue</module>
         <module>test-java-lock</module>
+        <module>test-java-jdk7</module>
     </modules>
 
     <groupId>cn.coget.test</groupId>

@@ -3,7 +3,6 @@ package cn.coget.test.lock.交易打印;
 import org.junit.Test;
 
 import java.util.Random;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -14,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentrantLockTests {
 
-    Lock lock = new ReentrantLock();
+    ReentrantLock lock = new ReentrantLock();
 
     @Test
     public void lockTest() {

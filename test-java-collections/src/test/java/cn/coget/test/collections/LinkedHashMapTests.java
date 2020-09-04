@@ -1,4 +1,4 @@
-package cn.coget.test.collections.hashMap;
+package cn.coget.test.collections;
 
 import org.junit.Before;
 import org.junit.Test;

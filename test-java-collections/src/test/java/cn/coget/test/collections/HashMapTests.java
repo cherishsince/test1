@@ -1,4 +1,4 @@
-package cn.coget.test.collections.hashMap;
+package cn.coget.test.collections;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,8 +18,15 @@ public class HashMapTests {
 
     @Before
     public void setup() {
-        hashMap = new HashMap<String, Integer>();
+        hashMap = new HashMap<>(10);
         System.err.println("setup");
+    }
+
+    @Test
+    public void resizeTest() {
+        for (int i = 0; i < 16; i++) {
+            hashMap.put("key-" + i, i);
+        }
     }
 
     @Test
@@ -31,7 +38,8 @@ public class HashMapTests {
     @Test
     public void repeatKeyTest() {
         hashMap.put("key1", 10);
-        hashMap.put("key1", 10);
+        hashMap.put("key1", 20);
+        System.err.println(hashMap.values());
         Assert.assertTrue("hash map size request 1!", hashMap.size() == 1);
     }
 

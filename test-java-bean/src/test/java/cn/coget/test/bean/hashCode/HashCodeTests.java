@@ -17,8 +17,13 @@ public class HashCodeTests {
     @Test
     public void toStringTest() {
         HashCodeBean hashCodeBean1 = new HashCodeBean("1");
+        HashCodeBean hashCodeBean11 = new HashCodeBean("1");
         HashCodeBean hashCodeBean2 = new HashCodeBean("100");
         HashCodeBean hashCodeBean3 = new HashCodeBean("200");
+
+        // equals
+        System.err.println(hashCodeBean1.equals(hashCodeBean11));
+
         System.err.println(hashCodeBean1.hashCode());
         System.err.println(hashCodeBean2.hashCode());
         System.err.println(hashCodeBean3.hashCode());
