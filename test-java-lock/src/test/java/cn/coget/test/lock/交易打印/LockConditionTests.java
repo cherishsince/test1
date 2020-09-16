@@ -32,12 +32,15 @@ public class LockConditionTests {
                     try {
                         System.err.println("condition1 生产了.");
                         condition2.signal();
+                        System.err.println("condition1 signal.");
                         condition1.await();
+                        System.err.println("condition1 await.");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } finally {
                         // 解锁
                         lock.unlock();
+                        System.err.println("condition1 unlock.");
                     }
                 }
             }
@@ -53,12 +56,15 @@ public class LockConditionTests {
                     try {
                         System.err.println("condition2 消费了.");
                         condition1.signal();
+                        System.err.println("condition2 signal.");
                         condition2.await();
+                        System.err.println("condition2 await.");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } finally {
                         // 解锁
                         lock.unlock();
+                        System.err.println("condition2 unlock.");
                     }
                 }
             }
