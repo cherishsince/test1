@@ -13,6 +13,8 @@
         <module>test-java-queue</module>
         <module>test-java-lock</module>
         <module>test-java-jdk7</module>
+        <module>test-eureka-client</module>
+        <module>test-eureka-server</module>
     </modules>
 
     <groupId>cn.coget.test</groupId>
