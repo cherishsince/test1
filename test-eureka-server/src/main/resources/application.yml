@@ -4,8 +4,26 @@ server:
 spring:
   application:
     name: eureka-server
+  # 如果您的项目已经使用Thymeleaf作为模板引擎，则可能无法正确加载Eureka服务器的Freemarker模板。在这种情况下，必须手动配置模板加载器：
+  freemarker:
+    template-loader-path: classpath:/templates/
 
 eureka:
   client:
+    # 禁用client刷新，自动刷新会导致，刷新的时候短暂的不可用 https://cloud.spring.io/spring-cloud-netflix/reference/html/#netflix-eureka-client-starter
+    refresh:
+      enable: false
     register-with-eureka: false # 不注册到 Eureka-Server，默认为 true
     fetch-registry: false # 不从 Eureka-Server 获取注册表，默认为 true
+    healthcheck: # 开启心跳机制
+      enabled: true
+  server:
+    enable-self-preservation: false # 关闭自我保护
+    evictionIntervalTimerInMs: 3000
+#  instance:
+#    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+#    statusPageUrlPath: ${server.servletPath}/info
+#    healthCheckUrlPath: ${server.servletPath}/health
+#    homePageUrl: https://${eureka.hostname}/
+#    leaseRenewalIntervalInSeconds: 1 # 发送心跳间隔时间(发送续约间隔时间)，默认30秒
+#    lease-expiration-duration-in-seconds: 2

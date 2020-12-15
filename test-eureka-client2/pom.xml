@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>test-eureka-client</artifactId>
+    <artifactId>test-eureka-client2</artifactId>
+
 
     <properties>
         <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
@@ -50,12 +51,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.74</version>
         </dependency>
     </dependencies>
 </project>
