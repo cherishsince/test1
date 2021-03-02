@@ -17,6 +17,7 @@
         <module>test-eureka-server</module>
         <module>file-convert</module>
         <module>test-eureka-client2</module>
+        <module>test-java-gc</module>
     </modules>
 
     <groupId>cn.coget.test</groupId>
