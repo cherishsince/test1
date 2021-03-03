@@ -1,8 +1,10 @@
 package cn.coget.test.queue;
 
-import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * linked queue
@@ -12,11 +14,38 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class LinkedBlockingDequeTests {
 
-    private LinkedBlockingDeque queue;
+    private static Logger logger = LoggerFactory.getLogger(LinkedBlockingDequeTests.class);
 
-    @Test
-    public void show() {
-        queue.add(1);
+    public static void main(String[] args) {
+        int maxCount = 10;
+        final ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(maxCount);
+        AtomicInteger count = new AtomicInteger();
+        for (int i = 0; i < 100; i++) {
+            new Thread(() -> {
+                for (int i12 = 0; i12 < 1; i12++) {
+                    try {
+                        queue.put(count.getAndIncrement());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.err.println("生成一个产品!");
+                }
+            }).start();
+        }
+
+        for (int i = 0; i < 100; i++) {
+            new Thread(() -> {
+                for (int i1 = 0; i1 < 1; i1++) {
+                    try {
+                        System.err.println("消费一个产品! " + queue.take());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+
+        logger.debug("执行完了!");
+        String a = "";
     }
-
 }
