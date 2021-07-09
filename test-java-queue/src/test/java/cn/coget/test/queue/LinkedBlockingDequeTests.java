@@ -33,6 +33,12 @@ public class LinkedBlockingDequeTests {
             }).start();
         }
 
+        try {
+            Thread.sleep(2000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for (int i = 0; i < 100; i++) {
             new Thread(() -> {
                 for (int i1 = 0; i1 < 1; i1++) {
